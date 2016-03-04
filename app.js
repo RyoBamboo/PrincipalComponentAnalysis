@@ -79,13 +79,19 @@ Calc.prototype.jacobi = function(arr)
 {
     var eps = Math.pow(10, -10); // 終了条件値
 
-    // 非対角行列の中から最大値の絶対値を取得する
-    var max = 0;
+    /*----------------------------------------
+    * 非対角行列の中から最大値の絶対値を取得する
+    *---------------------------------------*/
+    var max_v = 0;    // 最大値
+    var max_i, max_j; // 最大値のインデックス
     arr.forEach(function(value, i) {
         value.forEach(function(_value, j) {
             if (i != j) {
-                var abs = Math.abs(_value);
-                max = max < abs ? abs : max;
+                if (max_v > Math.abs(_value)) {
+                    max_v = Math.abs(_value);
+                    max_i = i;
+                    max_j = j;
+                }
             }
         });
     });
