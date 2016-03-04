@@ -74,11 +74,29 @@ Calc.prototype.varianceConvenceMatrix = function(arr_x, arr_y)
     return matrix;
 };
 
+// 与えられた行列から固有値を算出する（ヤコビ法）
+Calc.prototype.jacobi = function(arr)
+{
+    var eps = Math.pow(10, -10); // 終了条件値
+
+    // 非対角行列の中から最大値の絶対値を取得する
+    var max = 0;
+    arr.forEach(function(value, i) {
+        value.forEach(function(_value, j) {
+            if (i != j) {
+                var abs = Math.abs(_value);
+                max = max < abs ? abs : max;
+            }
+        });
+    });
+
+};
+
 
 $(function() {
     Calc = new Calc();
     var x = [12, 20, 24, 26, 33];
     var y = [3, 6, 7, 10, 14];
 
-    console.log(Calc.varianceConvenceMatrix(x, y));
+    console.log(Calc.jacobi(Calc.varianceConvenceMatrix(x, y)));
 });
