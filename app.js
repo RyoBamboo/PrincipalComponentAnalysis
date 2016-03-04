@@ -87,7 +87,7 @@ Calc.prototype.jacobi = function(arr)
     arr.forEach(function(value, i) {
         value.forEach(function(_value, j) {
             if (i != j) {
-                if (max_v > Math.abs(_value)) {
+                if (max_v < Math.abs(_value)) {
                     max_v = Math.abs(_value);
                     max_i = i;
                     max_j = j;
@@ -95,6 +95,25 @@ Calc.prototype.jacobi = function(arr)
             }
         });
     });
+
+    /*----------------------------------------
+    * 回転行列を算出する
+    *---------------------------------------*/
+    // sinとconを算出する
+    var alpha = arr[max_i][max_j]/2;
+    var beta = -arr[max_i][max_j];
+    var gamma = Math.abs(alpha)/Math.sqrt(alpha*alpha + beta*beta);
+    var sin = Math.sqrt((1-gamma)/2);
+    var cos = Math.sqrt((1+gamma)/2);
+    if (alpha * gamma < 0) {
+        sin = -sin; // sign(alpha * beta)の性質を反映（alpha * betaが負の時、sinも負）
+    }
+
+
+
+
+
+
 
 };
 
