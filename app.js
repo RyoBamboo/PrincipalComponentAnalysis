@@ -85,6 +85,21 @@ Calc.prototype.jacobi = function(arr)
 
     var eps = Math.pow(10, -10); // 終了条件値
     var _arr = $.extend(true, {}, arr); // 計算用の配列をコピー
+    /*----------------------------------------
+    * 逐次変換行列（固有ベクトル）の初期設定
+    *---------------------------------------*/
+    var arr_x = [];
+    for (var i=0; i < arr.length; i++) {
+        arr_x[i] = [];
+        for (var j=0; j < arr.length; j++) {
+            if (i == j) {
+                arr_x[i][j] = 1; // 対角要素は1
+            } else {
+                arr_x[i][j] = 0;
+            }
+        }
+    }
+    var _arr_x = $.extend(true, {}, arr_x); // 計算用の配列をコピー
 
     /*----------------------------------------
     * 非対角行列の中から最大値の絶対値を取得する
@@ -149,11 +164,26 @@ Calc.prototype.jacobi = function(arr)
                 }
             }
         }
-
     }
 
-    console.log(_arr);
+    /*----------------------------------------
+    * 逐次変換行列の計算（固有ベクトル）
+    *---------------------------------------*/
+    for (var i=0; i < arr_x.length; i++) {
+        for (var j=0; j < arr_x.length; j++) {
+            if (j == max_i) {
+                _arr_x[i][max_i] = (cos*arr_x[i][max_i])-(sin*arr_x[i][max_j])
+            } else if (j == max_j) {
+                _arr_x[i][max_j] = (sin*arr_x[i][max_i])+(cos*arr_x[i][max_j]);
+            } else {
+                _arr_x[i][j] = arr_x[i][j];
+            }
+        }
+    }
 
+    // 計算結果を更新
+    arr = $.extend(true, {}, _arr);
+    arr_x = $.extend(true, {}, _arr_x);
 };
 
 
