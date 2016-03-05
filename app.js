@@ -128,6 +128,16 @@ Calc.prototype.jacobi = function(arr)
                     _arr[max_i][j] = cos*arr[max_i][j]-sin*arr[max_j][j];
                 }
             }
+        } else if (i == max_j) {
+            for (var j = 0; j < arr.length; j++) {
+                if (j == max_i) {
+                    _arr[max_j][max_i] = 0;
+                } else if (j == max_j) {
+                    _arr[max_j][max_j] = (sin*sin*arr[max_i][max_i])+(sin*cos*arr[max_i][max_j])+(cos*sin*arr[max_i][max_j])+(cos*cos*arr[max_j][max_j]);
+                } else {
+                    _arr[max_j][j] = sin*arr[max_i][j]+cos*arr[j][max_j];
+                }
+            }
         } else {
             for (var j = 0; j < arr.length; j++) {
                 if (j == max_i) {
