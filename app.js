@@ -84,7 +84,7 @@ Calc.prototype.jacobi = function(arr)
     ]; // サンプルデータ
 
     var eps = Math.pow(10, -10); // 終了条件値
-    var _arr = arr; // 計算用の配列をコピー
+    var _arr = $.extend(true, {}, arr); // 計算用の配列をコピー
 
     /*----------------------------------------
     * 非対角行列の中から最大値の絶対値を取得する
@@ -117,6 +117,7 @@ Calc.prototype.jacobi = function(arr)
     }
 
     for (var i = 0; i < arr.length; i++) {
+
         if (i == max_i) {
             for (var j = 0; j < arr.length; j++) {
                 if (j == max_i) {
@@ -127,7 +128,18 @@ Calc.prototype.jacobi = function(arr)
                     _arr[max_i][j] = cos*arr[max_i][j]-sin*arr[max_j][j];
                 }
             }
+        } else {
+            for (var j = 0; j < arr.length; j++) {
+                if (j == max_i) {
+                    _arr[i][max_i] = cos*arr[max_i][i]-sin*arr[max_j][j]; // TODO:ここ怪しい
+                } else if (j == max_j) {
+                    _arr[i][max_j] = sin*arr[i][max_i]+cos*arr[j][max_i]; // TODO:ここ怪しい
+                } else {
+                    _arr[i][j] = arr[i][j];
+                }
+            }
         }
+
     }
 
     console.log(_arr);
