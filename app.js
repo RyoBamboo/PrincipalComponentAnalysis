@@ -77,7 +77,14 @@ Calc.prototype.varianceConvenceMatrix = function(arr_x, arr_y)
 // 与えられた行列から固有値を算出する（ヤコビ法）
 Calc.prototype.jacobi = function(arr)
 {
+    arr = [
+        [10, -4, -6],
+        [-4, 10, -6],
+        [-6, -6, 12]
+    ]; // サンプルデータ
+
     var eps = Math.pow(10, -10); // 終了条件値
+    var _arr = arr; // 計算用の配列をコピー
 
     /*----------------------------------------
     * 非対角行列の中から最大値の絶対値を取得する
@@ -100,20 +107,30 @@ Calc.prototype.jacobi = function(arr)
     * 回転行列を算出する
     *---------------------------------------*/
     // sinとconを算出する
-    var alpha = arr[max_i][max_j]/2;
+    var alpha = (arr[max_i][max_i]-arr[max_j][max_j])/2;
     var beta = -arr[max_i][max_j];
     var gamma = Math.abs(alpha)/Math.sqrt(alpha*alpha + beta*beta);
     var sin = Math.sqrt((1-gamma)/2);
     var cos = Math.sqrt((1+gamma)/2);
-    if (alpha * gamma < 0) {
+    if (alpha * beta < 0) {
         sin = -sin; // sign(alpha * beta)の性質を反映（alpha * betaが負の時、sinも負）
     }
 
+    for (var i = 0; i < arr.length; i++) {
+        if (i == max_i) {
+            for (var j = 0; j < arr.length; j++) {
+                if (j == max_i) {
+                    _arr[max_i][max_i] = (cos*cos*arr[max_i][max_i])-(cos*sin*arr[max_i][max_j])-(sin*cos*arr[max_i][max_j])+(sin*sin*arr[max_j][max_j]);
+                } else if (j == max_j) {
+                    _arr[max_i][max_j] = 0;
+                } else {
+                    _arr[max_i][j] = cos*arr[max_i][j]-sin*arr[max_j][j];
+                }
+            }
+        }
+    }
 
-
-
-
-
+    console.log(_arr);
 
 };
 
