@@ -24,7 +24,7 @@ Calc.prototype.average = function(arr)
 
 
 // 配列の分散を算出
-Calc.prototype.dispersion = function(arr)
+Calc.prototype.variance = function(arr)
 {
     var dispersion = 0;
     var average = this.average(arr);
@@ -57,19 +57,21 @@ Calc.prototype.convariance = function(arr_x, arr_y)
 };
 
 
-// 2つの配列の分散共分散行列を求める
-Calc.prototype.varianceConvenceMatrix = function(arr_x, arr_y)
+// 分散共分散行列を求める
+Calc.prototype.varianceConvenceMatrix = function(arr)
 {
-    var matrix = [
-        [0, 0],
-        [0, 0]
-    ];
-
-    // xの分散を求める
-    matrix[0][0] = this.dispersion(arr_x);
-    matrix[0][1] = this.convariance(arr_x, arr_y);
-    matrix[1][0] = this.dispersion(arr_y);
-    matrix[1][1] = this.convariance(arr_x, arr_y);
+    var matrix = []; // 分散共分散を格納する配列
+    var n = arr.length; // 次元数（変数の数）
+    for (var i=0; i < n; i++) {
+        matrix[i] = [];
+        for (var j=0; j < n; j++) {
+            if (i == j) {
+                matrix[i][j] = this.variance(arr[i]);
+            } else {
+                matrix[i][j] = this.convariance(arr[i], arr[j]);
+            }
+        }
+    }
 
     return matrix;
 };
@@ -212,8 +214,9 @@ Calc.prototype.jacobi = function(arr)
 
 $(function() {
     Calc = new Calc();
-    var x = [12, 20, 24, 26, 33];
-    var y = [3, 6, 7, 10, 14];
-
-    console.log(Calc.jacobi(Calc.varianceConvenceMatrix(x, y)));
+    var x = [147.5, 160.5, 160.7, 160.2, 154.5, 154.1, 170.0, 171.2, 157.5, 155.7];
+    var y = [68.0,  75.5,  77.0,  86.0,  73.0,  73.0,  75.0,  80.0,  73.0,  77.5];
+    var z = [37.0,  54.0,  49.3,  64.0,  47.5,  44.0,  49.5,  58.0,  42.0,  52.0];
+    var arr = [x, y, z];
+    console.log(Calc.jacobi(Calc.varianceConvenceMatrix(arr)));
 });
