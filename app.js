@@ -77,18 +77,6 @@ Calc.prototype.varianceConvenceMatrix = function(arr_x, arr_y)
 // 与えられた行列から固有値を算出する（ヤコビ法）
 Calc.prototype.jacobi = function(arr)
 {
-    //arr = [
-    //    [10, -4, -6],
-    //    [-4, 10, -6],
-    //    [-6, -6, 12]
-    //]; // サンプルデータ
-
-    arr = [
-        [10, 3, 2],
-        [3, 5, 1],
-        [2, 1, 0]
-    ]; // サンプルデータ
-
     var eps = Math.pow(10, -5); // 終了条件値
     var k = 0; // 繰り返し回数
     var limit = 20;// 最大繰り返し回数
@@ -103,7 +91,6 @@ Calc.prototype.jacobi = function(arr)
             _arr[i][j] = arr[i][j];
         }
     }
-
 
     /*----------------------------------------
     * 逐次変換行列（固有ベクトル）の初期設定
@@ -216,12 +203,9 @@ Calc.prototype.jacobi = function(arr)
             }
             k++;
         } else {
-            console.log('固有値='+arr);
-            console.log('固有ベクトル'+arr_x);
-            return;
+            return {eigenValue: arr, eigenVector: arr_x};
         }
     }
-
 };
 
 
