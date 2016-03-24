@@ -18,10 +18,41 @@
     </head>
     <body>
         <div id="result"></div>
+        <input type="file" id="csv-file" multiple>
     </body>
     <script type="text/javascript" src="jquery-1.12.1.min.js"></script>
     <script type="text/javascript" src="d3.min.js"></script>
     <script type="text/javascript" src="app.js"></script>
+    <script>
+        $(function() {
+            $("#csv-file").on('change', function(evt) {
+                var data = [];
+                var file = event.target.files[0];
+                var reader = new FileReader();
+                reader.readAsText(file, "utf-8");
+                reader.onload = function(event) {
+                    var result = event.target.result;
+                    d = result.split("\n");
+                    d.forEach(function(row) {
+                        dataset = row.split(" ");
+                        length = dataset.length;
+                        for (var i = 0; i < length; i++) {
+                            if(data[i] == null) {
+                                data[i] = []; // 配列を初期化
+                            }
+                            data[i].push(parseInt(dataset[i]));
+                        }
+                    });
+
+                    // グラフの生成
+                    Calc = new Calc();
+                    dataset = Calc.getPCScore(Calc.jacobi(Calc.varianceConvenceMatrix(data)), data);
+                    console.log(dataset);
+                    drawGraph(dataset);
+                }
+            })
+        });
+    </script>
     <script type="text/javascript" src="graph.js"></script>
 </html>
 
