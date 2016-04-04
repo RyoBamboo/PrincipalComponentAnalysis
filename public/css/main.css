@@ -1,0 +1,45 @@
+/**
+ * Base
+ */
+body,h1,h2,h3 button{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    color: #646464;
+}
+
+/**
+ * Container
+ */
+.container {
+    margin: 65px 0 0 0;
+}
+
+/**
+ * Nav
+ */
+.nav {
+    text-align: center;
+}
+
+/**
+ * Item
+ */
+.item {
+    padding: 30px 20px;
+    display: inline-block;
+    border-radius: 3px;
+}
+
+.item button {
+    border-radius: 15px;
+    background-color: #ff3163;
+    color: #f9f9fb;
+    padding: 8px 15px;
+    border: none;
+}
+
+.item:hover {
+    box-shadow: 0px 0px 50px 0px rgba(214, 214, 211, 0.8);
+}
+
+
