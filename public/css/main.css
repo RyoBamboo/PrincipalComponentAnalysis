@@ -42,4 +42,27 @@ body,h1,h2,h3 button{
     box-shadow: 0px 0px 50px 0px rgba(214, 214, 211, 0.8);
 }
 
+/**
+ *　ページ遷移時のアニメーション（テスト）
+ */
+.contents-leave {
+    transition: .5s ease-in;
+}
+
+.contents-enter {
+    transition: .8s ease-in;
+    display: none;
+    opacity: 0;
+}
+
+.contents-enter.contents-enter-active {
+    opacity: 1;
+}
+
+.contents-leave.contents-leave-active {
+    transform: translate(0,100px);
+    opacity: 0;
+}
+
+
 

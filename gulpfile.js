@@ -18,7 +18,7 @@ gulp.task('watch', function() {
 });
 
 gulp.task('webserver', function() {
-    gulp.src('./')
+    gulp.src('./public/')
         .pipe(webserver({
             host: '127.0.0.1',
             livereload: true

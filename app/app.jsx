@@ -1,5 +1,6 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
+var ReactCSSTransitionGroup = require('react-addons-css-transition-group');
 
 var ReactRouter = require('react-router');
 var Router = ReactRouter.Router;
@@ -8,7 +9,6 @@ var IndexRoute = ReactRouter.IndexRoute;
 var History = ReactRouter.History;
 var hashHistory = ReactRouter.hashHistory;
 var Link = ReactRouter.Link;
-
 
 var Header = require('./components/Header/header.jsx');
 
@@ -78,9 +78,11 @@ var Main = React.createClass({
         return (
             <div className="container">
                 <Header />
-                <div className="main">
-                    {this.props.children}
-                </div>
+                <ReactCSSTransitionGroup className="main" component="div" transitionName="contents" transitionEnterTimeout={500} transitionLeaveTimeout={800}>
+                {React.cloneElement(this.props.children, {
+                    key: this.props.location.pathname
+                })}
+                </ReactCSSTransitionGroup>
             </div>
         );
     }
