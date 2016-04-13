@@ -11,6 +11,7 @@ var hashHistory = ReactRouter.hashHistory;
 var Link = ReactRouter.Link;
 
 var Header = require('./components/Header/header.jsx');
+var Board  = require('./components/Board/board.jsx');
 
 var Top = React.createClass({
     render: function() {
@@ -19,44 +20,13 @@ var Top = React.createClass({
                 <br />
                 <br />
                 <div className="nav uk-width-1-1 uk-container-center uk-container">
-                    <div className="item">
-                        <img src="http://irec.jp/images/upfile/icon-mac01.png" />
-                        <h3>PrincipalComponentAnalysis</h3>
-                        <p>This is the most popular units.</p>
-                        <Link to="/pma">PMA</Link>
-                        <button>CREATE NEW PROTOTYPE</button>
-                    </div>
-                    <div className="item">
-                        <img src="http://irec.jp/images/upfile/icon-mac01.png" />
-                        <h3>PrincipalComponentAnalysis</h3>
-                        <p>This is the most popular units.</p>
-                        <button>CREATE NEW PROTOTYPE</button>
-                    </div>
-                    <div className="item">
-                        <img src="http://irec.jp/images/upfile/icon-mac01.png" />
-                        <h3>PrincipalComponentAnalysis</h3>
-                        <p>This is the most popular units.</p>
-                        <button>CREATE NEW PROTOTYPE</button>
-                    </div>
+                    <Board />
+                    <Board />
+                    <Board />
                     <br />
-                    <div className="item">
-                        <img src="http://irec.jp/images/upfile/icon-mac01.png" />
-                        <h3>PrincipalComponentAnalysis</h3>
-                        <p>This is the most popular units.</p>
-                        <button>CREATE NEW PROTOTYPE</button>
-                    </div>
-                    <div className="item">
-                        <img src="http://irec.jp/images/upfile/icon-mac01.png" />
-                        <h3>PrincipalComponentAnalysis</h3>
-                        <p>This is the most popular units.</p>
-                        <button>CREATE NEW PROTOTYPE</button>
-                    </div>
-                    <div className="item">
-                        <img src="http://irec.jp/images/upfile/icon-mac01.png" />
-                        <h3>PrincipalComponentAnalysis</h3>
-                        <p>This is the most popular units.</p>
-                        <button>CREATE NEW PROTOTYPE</button>
-                    </div>
+                    <Board />
+                    <Board />
+                    <Board />
                 </div>
             </div>
         )
