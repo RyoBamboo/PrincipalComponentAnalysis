@@ -6,9 +6,7 @@ var ReactRouter = require('react-router');
 var Router = ReactRouter.Router;
 var Route = ReactRouter.Route;
 var IndexRoute = ReactRouter.IndexRoute;
-var History = ReactRouter.History;
 var hashHistory = ReactRouter.hashHistory;
-var Link = ReactRouter.Link;
 
 var Header = require('./components/Header/header.jsx');
 var Board  = require('./components/Board/board.jsx');

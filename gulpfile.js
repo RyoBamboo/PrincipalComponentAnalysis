@@ -14,7 +14,7 @@ gulp.task('browserify', function() {
 });
 
 gulp.task('watch', function() {
-    gulp.watch('./*.jsx', ['browserify'])
+    gulp.watch('./app/**/*.jsx', ['browserify'])
 });
 
 gulp.task('webserver', function() {

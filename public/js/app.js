@@ -7,9 +7,7 @@ var ReactRouter = require('react-router');
 var Router = ReactRouter.Router;
 var Route = ReactRouter.Route;
 var IndexRoute = ReactRouter.IndexRoute;
-var History = ReactRouter.History;
 var hashHistory = ReactRouter.hashHistory;
-var Link = ReactRouter.Link;
 
 var Header = require('./components/Header/header.jsx');
 var Board = require('./components/Board/board.jsx');
@@ -95,7 +93,17 @@ var Link = ReactRouter.Link;
 var Board = React.createClass({
     displayName: 'Board',
 
+    getInitialState: function () {
+        return { hovered: false };
+    },
+    onMouseEnter: function () {
+        this.setState({ hovered: true });
+    },
+    onMouseLeave: function () {
+        this.setState({ hovered: false });
+    },
     render: function () {
+        console.log(this.state);
         return React.createElement(
             'div',
             { className: 'board' },
@@ -110,7 +118,7 @@ var Board = React.createClass({
                 null,
                 'This is the most popular units.'
             ),
-            React.createElement(Link, { to: '/pma' }),
+            React.createElement(Link, { to: '/pma', onMouseEnter: this.onMouseEnter, onMouseLeave: this.onMouseLeave }),
             ' ',
             React.createElement(
                 'button',
