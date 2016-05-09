@@ -19,18 +19,17 @@ var Top = React.createClass({
         return React.createElement(
             'div',
             null,
-            React.createElement('br', null),
-            React.createElement('br', null),
             React.createElement(
                 'div',
-                { className: 'nav uk-width-1-1 uk-container-center uk-container' },
-                React.createElement(Board, null),
-                React.createElement(Board, null),
-                React.createElement(Board, null),
-                React.createElement('br', null),
+                { 'class': 'boards' },
                 React.createElement(Board, null),
                 React.createElement(Board, null),
                 React.createElement(Board, null)
+            ),
+            React.createElement(
+                'button',
+                { className: 'btn-next' },
+                'next'
             )
         );
     }
@@ -62,7 +61,7 @@ var Main = React.createClass({
             React.createElement(Header, null),
             React.createElement(
                 ReactCSSTransitionGroup,
-                { className: 'main', component: 'div', transitionName: 'contents', transitionEnterTimeout: 500, transitionLeaveTimeout: 800 },
+                { className: 'main', className: 'uk-width-1-1', component: 'div', transitionName: 'contents', transitionEnterTimeout: 500, transitionLeaveTimeout: 800 },
                 React.cloneElement(this.props.children, {
                     key: this.props.location.pathname
                 })
@@ -107,24 +106,19 @@ var Board = React.createClass({
         return React.createElement(
             'div',
             { className: 'board' },
-            React.createElement('img', { src: 'http://irec.jp/images/upfile/icon-mac01.png' }),
+            React.createElement('img', { src: 'img/graph_pca.png' }),
             React.createElement(
                 'h3',
                 null,
-                'PrincipalComponentAnalysis'
+                'Principal Component Analysis'
             ),
             React.createElement(
                 'p',
                 null,
-                'This is the most popular units.'
+                'A controversial European Union plan to stem the flow of refugees began April 4 with the deportation of more than 200 people from Greek islands to Turkey..'
             ),
             React.createElement(Link, { to: '/pma', onMouseEnter: this.onMouseEnter, onMouseLeave: this.onMouseLeave }),
-            ' ',
-            React.createElement(
-                'button',
-                null,
-                'CREATE NEW PROTOTYPE'
-            )
+            ' '
         );
     }
 });

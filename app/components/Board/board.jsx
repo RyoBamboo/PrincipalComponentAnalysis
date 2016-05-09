@@ -16,11 +16,10 @@ var Board = React.createClass({
         console.log(this.state);
         return (
             <div className="board">
-                <img src="http://irec.jp/images/upfile/icon-mac01.png" />
-                <h3>PrincipalComponentAnalysis</h3>
-                <p>This is the most popular units.</p>
+                <img src="img/graph_pca.png" />
+                <h3>Principal Component Analysis</h3>
+                <p>A controversial European Union plan to stem the flow of refugees began April 4 with the deportation of more than 200 people from Greek islands to Turkey..</p>
                 <Link to="/pma" onMouseEnter={this.onMouseEnter} onMouseLeave={this.onMouseLeave}></Link> {/* クリックできる範囲をdiv全体にするためにcssで調整&文字は書かない */}
-                <button>CREATE NEW PROTOTYPE</button>
             </div>
         )
     }

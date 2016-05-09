@@ -15,17 +15,12 @@ var Top = React.createClass({
     render: function() {
         return (
             <div>
-                <br />
-                <br />
-                <div className="nav uk-width-1-1 uk-container-center uk-container">
-                    <Board />
-                    <Board />
-                    <Board />
-                    <br />
+                <div class="boards">
                     <Board />
                     <Board />
                     <Board />
                 </div>
+                <button className="btn-next">next</button>
             </div>
         )
     }
@@ -46,7 +41,7 @@ var Main = React.createClass({
         return (
             <div className="container">
                 <Header />
-                <ReactCSSTransitionGroup className="main" component="div" transitionName="contents" transitionEnterTimeout={500} transitionLeaveTimeout={800}>
+                <ReactCSSTransitionGroup className="main" className="uk-width-1-1" component="div" transitionName="contents" transitionEnterTimeout={500} transitionLeaveTimeout={800}>
                 {React.cloneElement(this.props.children, {
                     key: this.props.location.pathname
                 })}
