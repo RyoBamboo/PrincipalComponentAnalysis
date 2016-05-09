@@ -1,0 +1,113 @@
+/**
+ * Base
+ */
+body,h1,h2,h3 button{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    color: #646464;
+}
+
+/**
+ * Container
+ */
+.container {
+    margin: 65px 0 0 0;
+    text-align: center;
+}
+
+/**
+ * Nav
+ */
+.nav {
+}
+
+/**
+ * Board
+ */
+.boards {
+    width: 100%;
+}
+
+.board {
+    width: 15%;
+    padding: 30px 20px 10px 20px;
+    margin-right: 5%;
+    display: inline-block;
+    border-radius: 3px;
+
+    /* リンクをdiv全体に広げる */
+    position: relative;
+}
+
+.board:last-child {
+    margin-right: 0;
+}
+
+.board img {
+    width: 65%;
+}
+
+.board h3 {
+    font-weight: 400;
+}
+
+.board a {
+    /* リンクをdiv全体に広げる */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.board button {
+    border-radius: 15px;
+    background-color: #ff3163;
+    color: #f9f9fb;
+    padding: 8px 15px;
+    border: none;
+}
+
+a:hover {
+    box-shadow: 0px 0px 50px 0px rgba(206, 206, 203, 0.8);
+}
+
+/**
+ *　ページ遷移時のアニメーション（テスト）
+ */
+.contents-leave {
+    transition: .5s ease-in;
+}
+
+.contents-enter {
+    transition: .8s ease-in;
+    display: none;
+    opacity: 0;
+}
+
+.contents-enter.contents-enter-active {
+    opacity: 1;
+}
+
+.contents-leave.contents-leave-active {
+    transform: translate(0,100px);
+    opacity: 0;
+}
+
+/**
+ * Button
+ */
+.btn-next {
+    color: white;
+    letter-spacing: 0.2em;
+    font-size: 90%;
+    font-weight: 200;
+    background-color: #FC5185;
+    width: 120px;
+    height: 27px;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+}
+
+
+
