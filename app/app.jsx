@@ -10,6 +10,7 @@ var hashHistory = ReactRouter.hashHistory;
 
 var Header = require('./components/Header/header.jsx');
 var Board  = require('./components/Board/board.jsx');
+var StepNav  = require('./components/StepNav/stepNav.jsx');
 
 var Top = React.createClass({
     render: function() {
@@ -40,6 +41,7 @@ var Main = React.createClass({
     render: function() {
         return (
             <div className="container">
+                <StepNav />
                 <Header />
                 <ReactCSSTransitionGroup className="main" className="uk-width-1-1" component="div" transitionName="contents" transitionEnterTimeout={500} transitionLeaveTimeout={800}>
                 {React.cloneElement(this.props.children, {
