@@ -1,0 +1,3 @@
+Calc2 = function() {
+
+};
