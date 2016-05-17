@@ -61,9 +61,10 @@ body,h1,h2,h3 button{
     width: 0px;
 }
 
-.line:hover::after {
+.stepnav .show::after {
     width: 100%;
 }
+
 
 
 /**

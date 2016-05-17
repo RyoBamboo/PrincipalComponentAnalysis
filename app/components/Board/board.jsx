@@ -13,7 +13,6 @@ var Board = React.createClass({
         this.setState({hovered: false})
     },
     render: function() {
-        console.log(this.state);
         return (
             <div className="board">
                 <img src="img/graph_pca.png" />

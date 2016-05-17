@@ -47,7 +47,6 @@
                     // グラフの生成
                     Calc = new Calc();
                     dataset = Calc.getPCScore(Calc.jacobi(Calc.varianceConvenceMatrix(data)), data);
-                    console.log(dataset);
                     drawGraph(dataset);
                 }
             })
