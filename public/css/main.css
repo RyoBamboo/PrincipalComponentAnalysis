@@ -25,6 +25,7 @@ body,h1,h2,h3 button{
     border-radius: 25px;
     background-color: #fc5185;
     margin-left: -2px;
+    color: #3a3a3a;
     vertical-align: middle;
 }
 
@@ -34,6 +35,11 @@ body,h1,h2,h3 button{
     color: white;
 }
 
+.step .checked {
+    margin-top: 10px;
+    width: 17px;
+    color: white;
+}
 
 .line {
     top: 15px;
@@ -48,7 +54,7 @@ body,h1,h2,h3 button{
     position: relative;
 }
 
-.line::after {
+.line::after,.line::before{
     background-color: #fc5185;
     content: '';
     display: block;
@@ -61,8 +67,21 @@ body,h1,h2,h3 button{
     width: 0px;
 }
 
+.line::before {
+    z-index: -1;
+    background-color: #cccccc;
+    width: 100%;
+}
+
 .stepnav .show::after {
     width: 100%;
+}
+
+/**
+ * StepLink
+ */
+.steplink li{
+    display: inline-block;
 }
 
 
@@ -144,15 +163,22 @@ a:hover {
  * Button
  */
 .btn-next {
+    margin: 0 auto;
+    display: block;
     color: white;
     letter-spacing: 0.2em;
-    font-size: 90%;
+    font-size: 95%;
     font-weight: 200;
     background-color: #FC5185;
     width: 120px;
     height: 27px;
     border: 1px solid #ddd;
     border-radius: 20px;
+}
+
+a:link, a:visited, a:hover, a:active {
+    color: white;
+    text-decoration: none;
 }
 
 
