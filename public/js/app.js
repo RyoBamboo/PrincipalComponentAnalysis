@@ -115,9 +115,7 @@ var Board = React.createClass({
                 'p',
                 null,
                 'A controversial European Union plan to stem the flow of refugees began April 4 with the deportation of more than 200 people from Greek islands to Turkey..'
-            ),
-            React.createElement(Link, { to: '/pma', onMouseEnter: this.onMouseEnter, onMouseLeave: this.onMouseLeave }),
-            ' '
+            )
         );
     }
 });
@@ -163,6 +161,7 @@ var StepLink = React.createClass({
     displayName: 'StepLink',
 
     getInitialState() {
+
         return { step: 0 };
     },
     nextStep: function () {
@@ -177,7 +176,6 @@ var StepLink = React.createClass({
 
         var steps = $('.step');
         var targetStep = steps[stepCount];
-        console.log(stepCount + 1);
         $(targetStep).html("<img class='checked' src='img/check.png'>");
 
         stepCount = stepCount + 1;
@@ -185,7 +183,6 @@ var StepLink = React.createClass({
     },
     prevStep: function () {
         var stepCount = this.state.step;
-        console.log(stepCount);
         if (stepCount < 0) {
             return '';
         }

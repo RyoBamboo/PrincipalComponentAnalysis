@@ -4,6 +4,7 @@ var Link = ReactRouter.Link;
 
 var StepLink = React.createClass({
     getInitialState() {
+
         return {step: 0};
     },
     nextStep: function() {
@@ -16,7 +17,6 @@ var StepLink = React.createClass({
 
         var steps = $('.step');
         var targetStep = steps[stepCount];
-        console.log(stepCount+1);
         $(targetStep).html("<img class='checked' src='img/check.png'>");
 
         stepCount = stepCount + 1;
@@ -24,7 +24,6 @@ var StepLink = React.createClass({
     },
     prevStep: function() {
         var stepCount = this.state.step;
-        console.log(stepCount);
         if (stepCount < 0) { return ''; }
 
         stepCount = stepCount-1;
