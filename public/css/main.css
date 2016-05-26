@@ -16,10 +16,76 @@ body,h1,h2,h3 button{
 }
 
 /**
- * Nav
+ * StepNav
  */
-.nav {
+.step {
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    border-radius: 25px;
+    background-color: #fc5185;
+    margin-left: -2px;
+    color: #3a3a3a;
+    vertical-align: middle;
 }
+
+.step .number {
+    line-height: 32px;
+    font-size: 15px;
+    color: white;
+}
+
+
+.step .checked {
+    margin-top: 10px;
+    width: 17px;
+    color: white;
+}
+
+.line {
+    top: 15px;
+    margin-left: -3px;
+    height: 1px;
+    width: 50px;
+    display: inline-block;
+    color: black;
+    text-decoration: none;
+    border: 0px solid #fff;
+    padding: 10px 40px;
+    position: relative;
+}
+
+.line::after,.line::before{
+    background-color: #fc5185;
+    content: '';
+    display: block;
+    position: absolute;
+    z-index: 10;
+    transition: all .3s ease;
+    height: 5px;
+    left: 0px;
+    top: 0px;
+    width: 0px;
+}
+
+.line::before {
+    z-index: -1;
+    background-color: #cccccc;
+    width: 100%;
+}
+
+.stepnav .show::after {
+    width: 100%;
+}
+
+/**
+ * StepLink
+ */
+.steplink li{
+    display: inline-block;
+}
+
+
 
 /**
  * Board
@@ -98,15 +164,22 @@ a:hover {
  * Button
  */
 .btn-next {
+    margin: 0 auto;
+    display: block;
     color: white;
     letter-spacing: 0.2em;
-    font-size: 90%;
+    font-size: 95%;
     font-weight: 200;
     background-color: #FC5185;
     width: 120px;
     height: 27px;
     border: 1px solid #ddd;
     border-radius: 20px;
+}
+
+a:link, a:visited, a:hover, a:active {
+    color: white;
+    text-decoration: none;
 }
 
 
